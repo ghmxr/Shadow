@@ -48,9 +48,11 @@ internal class PluginLoaderBinder(private val mDynamicPluginLoader: DynamicPlugi
             PluginLoader.TRANSACTION_loadPlugin -> {
                 data.enforceInterface(PluginLoader.DESCRIPTOR)
                 val _arg0: String
+                val _arg1: String
                 _arg0 = data.readString()!!
+                _arg1 = data.readString()!!
                 try {
-                    mDynamicPluginLoader.loadPlugin(_arg0)
+                    mDynamicPluginLoader.loadPlugin(_arg0, _arg1)
                     reply.writeNoException()
                 } catch (e: Exception) {
                     reply.writeException(wrapExceptionForBinder(e))

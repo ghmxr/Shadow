@@ -40,12 +40,13 @@ class BinderPluginLoader implements PluginLoader {
     }
 
     @Override
-    public void loadPlugin(String partKey) throws RemoteException {
+    public void loadPlugin(String partKey, String uuid) throws RemoteException {
         Parcel _data = Parcel.obtain();
         Parcel _reply = Parcel.obtain();
         try {
             _data.writeInterfaceToken(DESCRIPTOR);
             _data.writeString(partKey);
+            _data.writeString(uuid);
             mRemote.transact(TRANSACTION_loadPlugin, _data, _reply, 0);
             _reply.readException();
         } finally {

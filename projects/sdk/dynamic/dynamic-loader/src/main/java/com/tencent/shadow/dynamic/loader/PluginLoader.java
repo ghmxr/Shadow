@@ -42,7 +42,7 @@ public interface PluginLoader {
     int TRANSACTION_startActivityInPluginProcess = (IBinder.FIRST_CALL_TRANSACTION + 8);
 
 
-    void loadPlugin(String partKey) throws RemoteException;
+    void loadPlugin(String partKey, String uuid) throws RemoteException;
 
     Map getLoadedPlugin() throws RemoteException;
 

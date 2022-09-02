@@ -135,7 +135,7 @@ public abstract class FastPluginManager extends PluginManagerThatUseDynamicLoade
         loadPluginLoaderAndRuntime(uuid, partKey);
         Map map = mPluginLoader.getLoadedPlugin();
         if (!map.containsKey(partKey)) {
-            mPluginLoader.loadPlugin(partKey);
+            mPluginLoader.loadPlugin(partKey, uuid);
         }
     }
 
